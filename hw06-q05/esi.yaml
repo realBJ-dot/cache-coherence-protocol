@@ -1,0 +1,50 @@
+---
+# This file defines the ESI coherence protocol
+name: esi
+states:
+  - exclusive:
+    - label: E 
+    - sharers: false
+    - dirty: false,true
+    - valid: true
+  - shared:
+    - label: S
+    - sharers: true
+    - dirty: false
+    - valid: true
+  - invalid:
+    - label: I
+    - sharers: false
+    - dirty: false
+    - valid: false
+starting_state: invalid
+internal_transitions:
+  - from: invalid
+    to: exclusive
+    action: markclean
+    trigger: readx
+
+  - from: invalid 
+    to: shared
+    action: writeback,readllc
+    trigger: read
+
+  - from: shared
+    to: exclusive
+    action: makedirty,invalidation
+    trigger: write
+external_transitions:
+  - from: shared
+    to: invalid
+    action: nothing
+    trigger: invalidation
+  
+  - from: exclusive
+    to: shared
+    action: nothing
+    trigger: busread
+  
+  - from: exculsive
+    to: invalid
+    action: nothing
+    trigger: write

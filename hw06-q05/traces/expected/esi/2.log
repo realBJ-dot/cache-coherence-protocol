@@ -1,0 +1,1064 @@
+coherence: esi
+cpu_count: 2
+l1_size: 5
+llc_writebacks: 5
+memory_trace:
+  0:
+    addr: 4
+    command: ST
+    cpu_id: 0
+    data_stored: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 0
+          state: E
+        1: empty
+      llc:
+      - addr: 4
+        data: 0
+  1:
+    addr: 4
+    command: LD
+    cpu_id: 0
+    data_returned: 5
+    expected_data: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        1: empty
+      llc:
+      - addr: 4
+        data: 0
+  2:
+    addr: 8
+    command: ST
+    cpu_id: 0
+    data_stored: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        1: empty
+      llc:
+      - addr: 4
+        data: 0
+      - addr: 8
+        data: 0
+  3:
+    addr: 2
+    command: ST
+    cpu_id: 1
+    data_stored: 2
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        1:
+        - addr: 2
+          data: 2
+          dirty: true
+          last_used: 3
+          state: E
+      llc:
+      - addr: 4
+        data: 0
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 0
+  4:
+    addr: 2
+    command: LD
+    cpu_id: 1
+    data_returned: 2
+    expected_data: 2
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        1:
+        - addr: 2
+          data: 2
+          dirty: true
+          last_used: 4
+          state: E
+      llc:
+      - addr: 4
+        data: 0
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 0
+  5:
+    addr: 2
+    command: ST
+    cpu_id: 0
+    data_stored: 1
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: true
+          last_used: 5
+          state: E
+        1:
+        - addr: 2
+          state: I
+      llc:
+      - addr: 4
+        data: 0
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 2
+  6:
+    addr: 6
+    command: ST
+    cpu_id: 0
+    data_stored: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: true
+          last_used: 5
+          state: E
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          state: I
+      llc:
+      - addr: 4
+        data: 0
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 2
+      - addr: 6
+        data: 0
+  7:
+    addr: 3
+    command: ST
+    cpu_id: 1
+    data_stored: 2
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: true
+          last_used: 1
+          state: E
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: true
+          last_used: 5
+          state: E
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          state: I
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+      llc:
+      - addr: 4
+        data: 0
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 2
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+  8:
+    addr: 4
+    command: LD
+    cpu_id: 1
+    data_returned: 5
+    expected_data: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: true
+          last_used: 5
+          state: E
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          state: I
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 2
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+  9:
+    addr: 9
+    command: ST
+    cpu_id: 1
+    data_stored: 4
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: true
+          last_used: 5
+          state: E
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          state: I
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: true
+          last_used: 9
+          state: E
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 2
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 0
+  10:
+    addr: 2
+    command: LD
+    cpu_id: 1
+    data_returned: 1
+    expected_data: 1
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 5
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 10
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: true
+          last_used: 9
+          state: E
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 0
+  11:
+    addr: 2
+    command: LD
+    cpu_id: 0
+    data_returned: 1
+    expected_data: 1
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: true
+          last_used: 2
+          state: E
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 10
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: true
+          last_used: 9
+          state: E
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 0
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 0
+  12:
+    addr: 8
+    command: LD
+    cpu_id: 1
+    data_returned: 5
+    expected_data: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 10
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: true
+          last_used: 9
+          state: E
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 0
+  13:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: 4
+    expected_data: 4
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 13
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 10
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 9
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
+  14:
+    addr: 2
+    command: LD
+    cpu_id: 1
+    data_returned: 1
+    expected_data: 1
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 13
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 14
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 9
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
+  15:
+    addr: 9
+    command: LD
+    cpu_id: 1
+    data_returned: 4
+    expected_data: 4
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 13
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 14
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 15
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
+  16:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: 4
+    expected_data: 4
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 1
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 16
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 14
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 15
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
+  17:
+    addr: 4
+    command: LD
+    cpu_id: 0
+    data_returned: 5
+    expected_data: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 17
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 11
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 16
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 14
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 15
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
+  18:
+    addr: 2
+    command: LD
+    cpu_id: 0
+    data_returned: 1
+    expected_data: 1
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 17
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 2
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 18
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 16
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 14
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 15
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
+  19:
+    addr: 8
+    command: LD
+    cpu_id: 0
+    data_returned: 5
+    expected_data: 5
+    memory:
+      l1:
+        0:
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 17
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 19
+          state: S
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 18
+          state: S
+        - addr: 6
+          data: 5
+          dirty: true
+          last_used: 6
+          state: E
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 16
+          state: S
+        1:
+        - addr: 2
+          data: 1
+          dirty: false
+          last_used: 14
+          state: S
+        - addr: 3
+          data: 2
+          dirty: true
+          last_used: 7
+          state: E
+        - addr: 4
+          data: 5
+          dirty: false
+          last_used: 8
+          state: S
+        - addr: 9
+          data: 4
+          dirty: false
+          last_used: 15
+          state: S
+        - addr: 8
+          data: 5
+          dirty: false
+          last_used: 12
+          state: S
+      llc:
+      - addr: 4
+        data: 5
+      - addr: 8
+        data: 5
+      - addr: 2
+        data: 1
+      - addr: 6
+        data: 0
+      - addr: 3
+        data: 0
+      - addr: 9
+        data: 4
