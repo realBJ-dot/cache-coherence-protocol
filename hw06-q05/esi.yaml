@@ -3,48 +3,52 @@
 name: esi
 states:
   - exclusive:
-    - label: E 
-    - sharers: false
-    - dirty: false,true
-    - valid: true
+      - label: E
+      - sharers: false
+      - dirty: false
+      - valid: true
   - shared:
-    - label: S
-    - sharers: true
-    - dirty: false
-    - valid: true
+      - label: S
+      - sharers: true
+      - dirty: false
+      - valid: true
   - invalid:
-    - label: I
-    - sharers: false
-    - dirty: false
-    - valid: false
+      - label: I
+      - sharers: false
+      - dirty: false
+      - valid: false
 starting_state: invalid
 internal_transitions:
   - from: invalid
     to: exclusive
     action: markclean
     trigger: readx
-
   - from: invalid 
+    to: exclusive
+    action: invalidation,markdirty
+    trigger: write
+  - from: invalid
     to: shared
     action: writeback,readllc
     trigger: read
-
   - from: shared
     to: exclusive
-    action: makedirty,invalidation
+    action: markdirty,invalidation
+    trigger: write
+  - from: exclusive
+    to: exclusive
+    action: markdirty
     trigger: write
 external_transitions:
   - from: shared
     to: invalid
     action: nothing
     trigger: invalidation
-  
   - from: exclusive
     to: shared
-    action: nothing
+    action: writeback,markclean
     trigger: busread
-  
-  - from: exculsive
+  - from: exclusive
     to: invalid
-    action: nothing
-    trigger: write
+    action: writeback,markclean
+    trigger: invalidation

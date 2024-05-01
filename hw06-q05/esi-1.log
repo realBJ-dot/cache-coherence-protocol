@@ -1,0 +1,102 @@
+coherence: esi
+cpu_count: 1
+l1_size: 2
+llc_writebacks: 0
+memory_trace:
+  0:
+    addr: 9
+    command: ST
+    cpu_id: 0
+    data_stored: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  1:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  2:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  3:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  4:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  5:
+    addr: 6
+    command: ST
+    cpu_id: 0
+    data_stored: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  6:
+    addr: 9
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  7:
+    addr: 2
+    command: ST
+    cpu_id: 0
+    data_stored: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  8:
+    addr: 6
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
+  9:
+    addr: 6
+    command: LD
+    cpu_id: 0
+    data_returned: null
+    expected_data: 1
+    memory:
+      l1:
+        0: empty
+      llc: []
